@@ -1,0 +1,3 @@
+---
+#this variable will applied to group
+apachePort: 9092

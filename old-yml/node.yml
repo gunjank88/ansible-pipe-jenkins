@@ -1,0 +1,27 @@
+---
+- hosts: webservers
+  become: true
+  
+  tasks:
+   - name: add apt key for nodesource
+     apt_key: 
+            url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+
+   - name: add repo for nodesource
+     apt_repository:
+            repo: 'deb https://deb.nodesource.com/node_0.10 {{ ansible_distribution_release }} main'
+            update_cache: yes
+
+   - name: install nodejs
+     apt: 
+            name: nodejs
+            state: present
+   - name: Update the apt cache
+     apt:
+            update_cache: yes
+
+   - name: install java
+     apt: 
+            name: openjdk-8-jdk
+            state: present
+
