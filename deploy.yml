@@ -1,5 +1,5 @@
 ---
-- hosts: "{{ hosts }}"
+- hosts: webserversProd
   become: true
   roles:
     - role: web-server
